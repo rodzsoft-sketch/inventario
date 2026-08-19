@@ -1,0 +1,6 @@
+LOGIN - Funciona 100%
+DASHBOARD - Funciona 100%
+BM1 - Funciona 100%
+BM2 - Funciona 100%
+BM3 - Funciona 100%
+BM4 - Funciona 100%

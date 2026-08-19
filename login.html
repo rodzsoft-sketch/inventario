@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión - Gestión BM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --primary: #00236f;
+        --primary-soft: #1e3a8a;
+        --surface: #ffffff;
+        --surface-muted: #f3f4f6;
+        --text: #1a1b21;
+        --muted: #5f6470;
+        --border: #e5e7eb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+      }
+
+      .login-shell {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .login-card {
+        width: min(100%, 440px);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(229, 231, 235, 0.8);
+        border-radius: 24px;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+        padding: 32px;
+      }
+
+      .logo {
+        display: block;
+        width: 100px;
+        height: auto;
+        margin: 0 auto 16px;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 14px;
+        border-radius: 24px;
+        background: #e8edff;
+        color: var(--primary);
+        font-weight: 700;
+        margin: 0 auto 18px;
+        text-align: center;
+      }
+
+      .brand span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+        line-height: 1.2;
+        color: var(--primary);
+      }
+
+      .subtitle {
+        margin: 0 0 24px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      form {
+        display: grid;
+        gap: 14px;
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-size: 15px;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus {
+        border-color: var(--primary-soft);
+        box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+      }
+
+      .checkbox input {
+        width: auto;
+        margin: 0;
+      }
+
+      .link {
+        color: var(--primary-soft);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      button {
+        border: 0;
+        border-radius: 12px;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        opacity: 0.95;
+      }
+
+      button:disabled {
+        cursor: wait;
+        opacity: 0.8;
+      }
+
+      .status {
+        margin-top: 14px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: #f3f4f6;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .status.success {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .footer-link {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body data-page="login">
+    <main class="login-shell">
+      <section class="login-card" aria-label="Formulario de inicio de sesión">
+        <img class="logo" src="logo alcaldia.png" alt="Logo Alcaldía" />
+        <div class="brand">
+          <span>Control Interno de Bienes</span>
+        </div>
+
+        <h1>Iniciar sesión</h1>
+        <p class="subtitle">
+          Accede al panel de control y gestiona tus bienes con seguridad.
+        </p>
+
+        <form id="loginForm">
+          <label for="account">
+            Usuario
+            <input id="account" name="account" type="text" placeholder="Ingrese su usuario" required />
+          </label>
+
+          <label for="password">
+            Contraseña
+            <input id="password" name="password" type="password" placeholder="Ingresa tu contraseña" required />
+          </label>
+
+          <button id="submitButton" type="submit">Entrar</button>
+        </form>
+
+        <p id="statusMessage" class="status" role="status" hidden></p>
+      </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>

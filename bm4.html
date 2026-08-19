@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BM4 Reporte Mensual - Gestión BM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/styles.css"/>
+<style>
+        .chart-container {
+            position: relative;
+            height: 240px;
+            width: 100%;
+        }
+        /* Custom scrollbar for data-heavy views */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5c5d3;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #757682;
+        }
+        .print-only {
+            display: none;
+        }
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+            .print-only,
+            .print-only * {
+                visibility: visible !important;
+            }
+            .print-only {
+                display: block !important;
+                position: static !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-tint": "#4059aa",
+                        "on-primary-container": "#90a8ff",
+                        "surface-container-highest": "#e3e1e9",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#00164e",
+                        "outline-variant": "#c5c5d3",
+                        "outline": "#757682",
+                        "error": "#ba1a1a",
+                        "secondary": "#505f76",
+                        "tertiary-fixed": "#dae2fd",
+                        "tertiary": "#222a3e",
+                        "surface": "#faf8ff",
+                        "primary-container": "#1e3a8a",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#a4acc5",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1a1b21",
+                        "primary": "#00236f",
+                        "on-surface": "#1a1b21",
+                        "tertiary-container": "#384055",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b6c4ff",
+                        "primary-fixed": "#dce1ff",
+                        "on-secondary-container": "#54647a",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f4f3fa",
+                        "surface-container": "#eeedf4",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-variant": "#e3e1e9",
+                        "surface-dim": "#dad9e1",
+                        "inverse-on-surface": "#f1f0f7",
+                        "on-surface-variant": "#444651",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-secondary-fixed": "#0b1c30",
+                        "inverse-surface": "#2f3036",
+                        "surface-container-high": "#e9e7ef",
+                        "on-primary-fixed-variant": "#264191",
+                        "background": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-margin": "24px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body data-page="bm4" class="bg-background text-on-background font-body-md min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-highest border-r border-outline-variant shadow-lg flex flex-col py-lg z-50">
+<div class="px-lg mb-xl">
+<div class="mb-md">
+<img src="logo alcaldia.png" alt="Logo Alcaldía" style="max-width: 120px; height: auto;" />
+</div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">Gestión BM</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Control Interno de Bienes</p>
+</div>
+<nav class="flex-1 flex flex-col px-md space-y-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="index.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="bm1.html">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-md font-label-md">BM1 Inventario Anual</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="bm2.html">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="text-label-md font-label-md">BM2 Movimientos</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="bm3.html">
+<span class="material-symbols-outlined" data-icon="delete_forever">delete_forever</span>
+<span class="text-label-md font-label-md">BM3 Desincorporación</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-md px-lg py-md text-primary font-bold border-r-4 border-primary bg-primary-container/10 transition-all duration-200" href="bm4.html">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="text-label-md font-label-md">BM4 Reporte Mensual</span>
+</a>
+</nav>
+<div class="px-lg py-md border-t border-outline-variant mt-auto">
+    <button id="logoutButton" class="w-full flex items-center justify-center gap-2 rounded-lg border border-outline-variant px-lg py-md text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined">logout</span>
+        Cerrar sesión
+    </button>
+</div>
+</aside>
+<!-- Modal de Registro BM4 -->
+<div id="bm4-form-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/50 px-lg">
+  <div class="w-full max-w-2xl rounded-xl bg-surface-container-lowest p-lg shadow-2xl border border-outline-variant">
+    <div class="flex items-start justify-between gap-md mb-md">
+      <div>
+        <p class="text-label-sm font-label-sm text-on-surface-variant">BM4</p>
+        <h3 class="text-headline-sm font-headline-sm text-on-surface">Generar nuevo reporte</h3>
+        <p id="bm4-form-message" class="mt-2 text-sm text-on-surface-variant">Ingresa los valores del reporte mensual.</p>
+      </div>
+      <button id="bm4-close-form" class="material-symbols-outlined rounded-full p-2 hover:bg-surface-container-high transition-colors">close</button>
+    </div>
+    <form id="bm4-register-form" class="grid grid-cols-1 md:grid-cols-2 gap-md">
+      <label class="text-sm font-medium text-on-surface-variant">Mes
+        <div id="bm4-month-text" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2 bg-surface-container text-body-md"></div>
+        <input type="hidden" name="month" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Año
+        <input name="year" required type="number" min="2020" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Sección/Unidad
+        <select name="section" required class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2">
+          <option value="Deposito 01">Deposito 01</option>
+          <option value="Deposito 02">Deposito 02</option>
+          <option value="Archivo">Archivo</option>
+          <option value="Sala de Juntas Interna">Sala de Juntas Interna</option>
+        </select>
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Existencia anterior
+        <input name="existenciaAnterior" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Incorporación del mes
+        <input name="incorporacionMes" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Desincorporación del mes
+        <input name="desincorporacionMes" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Desincorporación mes pasado
+        <input name="desincorporacionMesPasado" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Bienes totales
+        <input name="bienesTotales" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Valor total Bs
+        <input name="valorTotal" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Movimientos
+        <input name="movements" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Desincorporados
+        <input name="desincorporados" required type="number" min="0" readonly class="mt-1 w-full rounded-lg border border-outline-variant bg-surface-container px-sm py-2" />
+      </label>
+      <div class="md:col-span-2 flex justify-end gap-sm pt-sm">
+        <button type="button" id="bm4-cancel-form" class="rounded-lg border border-outline-variant px-md py-2 text-on-surface-variant">Cancelar</button>
+        <button type="submit" class="rounded-lg bg-primary px-md py-2 text-on-primary">Guardar reporte</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="bm4-detail-modal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-slate-900/50 px-lg">
+  <div class="w-full max-w-xl rounded-xl bg-surface-container-lowest p-lg shadow-2xl border border-outline-variant">
+    <div class="flex items-start justify-between gap-md mb-md">
+      <div>
+        <p class="text-label-sm font-label-sm text-on-surface-variant">Detalle del reporte</p>
+        <h3 id="bm4-detail-title" class="text-headline-sm font-headline-sm text-on-surface">Reporte</h3>
+      </div>
+      <button id="bm4-close-detail" class="material-symbols-outlined rounded-full p-2 hover:bg-surface-container-high transition-colors">close</button>
+    </div>
+    <div id="bm4-detail-content" class="space-y-sm text-sm text-on-surface-variant"></div>
+    <div class="flex justify-end gap-sm pt-sm">
+      <button type="button" id="bm4-detail-download" class="rounded-lg border border-primary px-md py-2 text-primary">Descargar CSV</button>
+      <button type="button" id="bm4-detail-close" class="rounded-lg border border-outline-variant px-md py-2 text-on-surface-variant">Cerrar</button>
+    </div>
+  </div>
+</div>
+<div id="bm4-print-layout" class="print-only"></div>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center w-full px-lg py-sm bg-surface-container-lowest border-b border-outline-variant shadow-sm sticky top-0 z-40">
+<div class="flex items-center gap-lg">
+<span class="text-headline-sm font-headline-sm font-extrabold text-primary">Bienes Muebles</span>
+<div class="h-6 w-px bg-outline-variant mx-sm"></div>
+<span class="text-label-md font-label-md text-secondary">Control del Departamento</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button type="button" data-help-button class="material-symbols-outlined p-2 hover:bg-surface-container text-on-surface-variant rounded-full transition-colors" data-icon="help">help</button>
+<div class="flex items-center gap-sm pl-md ml-md border-l border-outline-variant">
+<div class="text-right">
+<p id="currentUserName" class="text-label-sm font-label-sm font-bold text-on-surface">Usuario</p>
+<p id="currentUserRole" class="text-[10px] text-on-surface-variant">Usuario</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="p-lg space-y-lg">
+<!-- Page Header Area -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary">BM4 - Reporte Mensual</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Generación y consulta de informes de gestión de los Bienes.</p>
+<span id="bm4-record-count" class="text-label-sm text-on-surface-variant">0 reportes</span>
+</div>
+<div class="flex flex-wrap gap-sm items-center">
+<button id="bm4-add" class="bg-primary text-on-primary px-lg py-md rounded-lg flex items-center gap-sm font-label-md hover:opacity-90 transition-opacity shadow-md">
+<span class="material-symbols-outlined" data-icon="add_chart">add_chart</span>
+                    Generar Nuevo Reporte
+                </button>
+            </div>
+        </div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<span class="p-xs bg-primary-container/10 text-primary rounded-md material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-md">Total de Bienes</p>
+<h4 data-report-metric="inventory" class="text-headline-md font-headline-md text-on-surface">0</h4>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-sm">Inventario activo</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<span class="p-xs bg-secondary-container/40 text-secondary rounded-md material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-md">Movimientos</p>
+<h4 data-report-metric="movements" class="text-headline-md font-headline-md text-on-surface">0</h4>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-sm">Solicitudes registradas</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<span class="p-xs bg-error-container/20 text-error rounded-md material-symbols-outlined" data-icon="delete_forever">delete_forever</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-md">Desincorporaciones</p>
+<h4 data-report-metric="desincorporations" class="text-headline-md font-headline-md text-on-surface">0</h4>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-sm">Estado BM3</p>
+</div>
+</div>
+<!-- Recent Reports Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="px-lg py-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Reportes de Inventario Interno Recientes</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant">Nombre del Reporte</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant">Fecha de Generación</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant">Mes Cubierto</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant text-right">Acciones</th>
+</tr>
+</thead>
+<tbody id="bm4-table-body" class="divide-y divide-outline-variant">
+<tr>
+<td class="px-lg py-md text-sm text-on-surface-variant" colspan="4">Cargando reportes...</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bm4-table-summary" class="px-lg py-sm bg-surface-container-low border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<p>Sin filtros aplicados</p>
+</div>
+</div>
+</div>
+<footer class="mt-10 border-t border-outline-variant bg-surface-container-low/60 py-md px-lg text-center text-label-sm font-label-sm text-on-surface-variant">
+    © 2026 Bienes Muebles - Sistema de Gestión de Bienes. Todos los derechos reservados.
+</footer>
+</main>
+<!-- Floating Atmosphere Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Subtle entrance animation for cards
+            const cards = document.querySelectorAll('.bg-surface-container-lowest');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                card.style.transition = `all 0.4s ease-out ${index * 0.05}s`;
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            });
+        });
+    </script>
+<script src="assets/app.js"></script>
+</body></html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BM1 Inventario Anual - Gestión BM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/styles.css"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#505f76",
+                    "on-primary-fixed-variant": "#264191",
+                    "tertiary": "#222a3e",
+                    "inverse-on-surface": "#f1f0f7",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#1e3a8a",
+                    "on-tertiary": "#ffffff",
+                    "background": "#faf8ff",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-primary": "#ffffff",
+                    "outline": "#757682",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "on-primary-container": "#90a8ff",
+                    "surface-container-low": "#f4f3fa",
+                    "surface-bright": "#faf8ff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#131b2e",
+                    "surface-container-high": "#e9e7ef",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1a1b21",
+                    "inverse-surface": "#2f3036",
+                    "tertiary-container": "#384055",
+                    "primary-fixed": "#dce1ff",
+                    "on-surface-variant": "#444651",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#00164e",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "surface-variant": "#e3e1e9",
+                    "inverse-primary": "#b6c4ff",
+                    "outline-variant": "#c5c5d3",
+                    "surface": "#faf8ff",
+                    "on-secondary-container": "#54647a",
+                    "surface-container": "#eeedf4",
+                    "surface-dim": "#dad9e1",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-surface": "#1a1b21",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#dae2fd",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "secondary-container": "#d0e1fb",
+                    "surface-tint": "#4059aa",
+                    "surface-container-highest": "#e3e1e9",
+                    "on-tertiary-container": "#a4acc5",
+                    "primary": "#00236f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-margin": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-xl": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body data-page="bm1" class="bg-background text-on-background font-body-md min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-highest border-r border-outline-variant shadow-lg flex flex-col py-lg z-50">
+<div class="px-lg mb-xl">
+<div class="mb-md">
+<img src="logo alcaldia.png" alt="Logo Alcaldía" style="max-width: 120px; height: auto;" />
+</div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">Gestión BM</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Control Interno de Bienes</p>
+</div>
+<nav class="flex-1 flex flex-col px-md space-y-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-lg py-md text-primary font-bold border-r-4 border-primary bg-primary-container/10 transition-all duration-200" href="bm1.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-md font-label-md">BM1 Inventario Anual</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="bm2.html">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="text-label-md font-label-md">BM2 Movimientos</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="bm3.html" data-admin-only>
+<span class="material-symbols-outlined">delete_forever</span>
+<span class="text-label-md font-label-md">BM3 Desincorporación</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="bm4.html" data-admin-only>
+<span class="material-symbols-outlined">assessment</span>
+<span class="text-label-md font-label-md">Reporte Departamental</span>
+</a>
+</nav>
+<div class="px-lg py-md border-t border-outline-variant mt-auto">
+    <button id="logoutButton" class="w-full flex items-center justify-center gap-2 rounded-lg border border-outline-variant px-lg py-md text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined">logout</span>
+        Cerrar sesión
+    </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest flex justify-between items-center w-full px-lg py-sm border-b border-outline-variant shadow-sm sticky top-0 z-40">
+<div class="flex items-center gap-md">
+<h2 class="text-headline-md font-headline-md font-extrabold text-primary">Bienes Muebles</h2>
+<div class="h-6 w-px bg-outline-variant mx-sm"></div>
+<span class="text-label-md font-label-md text-secondary">Control del Departamento</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button type="button" data-help-button class="material-symbols-outlined p-2 hover:bg-surface-container text-on-surface-variant rounded-full transition-colors">help</button>
+<div class="flex items-center gap-sm pl-md ml-md border-l border-outline-variant">
+<div class="text-right">
+<p id="currentUserName" class="text-label-sm font-label-sm font-bold text-on-surface">Usuario</p>
+<p id="currentUserRole" class="text-[10px] text-on-surface-variant">Usuario</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<main class="p-lg flex-1 flex flex-col">
+<!-- Table Action Bar -->
+<div class="mb-lg flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="space-y-1">
+<h3 class="text-headline-sm font-headline-sm text-primary">Control de Bienes</h3>
+<p class="text-body-sm text-on-surface-variant">Gestión detallada del inventario asignado al departamento.</p>
+<span id="bm1-record-count" class="text-label-sm text-on-surface-variant">5 registros</span>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-sm w-full md:w-auto">
+<div class="w-full sm:w-80">
+<label class="sr-only" for="bm1-search">Buscar bienes</label>
+<input id="bm1-search" type="search" placeholder="Buscar por orden, descripción o sección" class="w-full rounded-lg border border-outline-variant bg-surface-container-low px-sm py-2 text-sm text-on-surface" />
+</div>
+<div class="flex items-center gap-sm">
+<button id="bm1-add" class="flex items-center gap-sm px-md py-2 bg-primary text-on-primary rounded-lg font-label-md hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Registrar Bien
+                    </button>
+<button id="bm1-export" class="flex items-center gap-sm px-md py-2 bg-surface-container-highest text-on-surface rounded-lg font-label-md hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Exportar Listado
+                    </button>
+</div>
+</div>
+</div>
+<div class="mb-lg flex flex-wrap gap-sm">
+<button data-bm1-filter="all" class="px-md py-2 rounded-full bg-primary-container text-on-primary-container font-semibold text-label-sm">Todas las secciones</button>
+<button data-bm1-filter="Deposito 01" class="px-md py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm">Deposito 01</button>
+<button data-bm1-filter="Deposito 02" class="px-md py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm">Deposito 02</button>
+<button data-bm1-filter="Archivo" class="px-md py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm">Archivo</button>
+<button data-bm1-filter="Sala de Juntas Interna" class="px-md py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm">Sala de Juntas Interna</button>
+</div>
+<!-- Bento-style Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-lg">
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined p-2 bg-primary-container/10 text-primary rounded-lg">inventory</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Total Bienes Registrados</p>
+<h4 id="bm1-summary-total" class="text-headline-md font-headline-md">1,248</h4>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined p-2 bg-secondary-container/20 text-on-secondary-container rounded-lg">verified</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Bienes registrados este mes</p>
+<h4 id="bm1-summary-month" class="text-headline-md font-headline-md">1,223</h4>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined p-2 bg-tertiary-fixed/30 text-tertiary rounded-lg">apartment</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Secciones Internas</p>
+<h4 id="bm1-summary-sections" class="text-headline-md font-headline-md">14</h4>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined p-2 bg-on-tertiary-fixed/10 text-on-tertiary-fixed rounded-md">payments</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Valor Total de los Bienes</p>
+<h4 id="bm1-summary-value" class="text-headline-md font-headline-md">Bs 0</h4>
+</div>
+</div>
+<!-- Register Form Modal -->
+<div id="bm1-form-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/50 px-lg">
+  <div class="w-full max-w-2xl rounded-xl bg-surface-container-lowest p-lg shadow-2xl border border-outline-variant">
+    <div class="flex items-start justify-between gap-md mb-md">
+      <div>
+        <p class="text-label-sm font-label-sm text-on-surface-variant">BM1</p>
+        <h3 id="bm1-form-title" class="text-headline-sm font-headline-sm text-on-surface">Registrar nuevo bien</h3>
+        <p id="bm1-form-subtitle" class="text-sm text-on-surface-variant">Completa los datos del activo para registrarlo.</p>
+        <p id="bm1-form-message" class="mt-2 text-sm text-on-surface-variant"> </p>
+      </div>
+      <button id="bm1-close-form" class="material-symbols-outlined rounded-full p-2 hover:bg-surface-container-high transition-colors">close</button>
+    </div>
+    <form id="bm1-register-form" class="grid grid-cols-1 md:grid-cols-2 gap-md">
+      <label class="text-sm font-medium text-on-surface-variant">Grupo
+        <input name="group" required type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Sub-Grupo
+        <input name="subgroup" required type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Sección
+        <select name="section" required class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2">
+          <option value="Deposito 01">Deposito 01</option>
+          <option value="Deposito 02">Deposito 02</option>
+          <option value="Archivo">Archivo</option>
+          <option value="Sala de Juntas Interna">Sala de Juntas Interna</option>
+        </select>
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Cantidad
+        <input name="quantity" required type="number" min="1" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Nro de Orden
+        <input name="order" required type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Valor unitario Bs
+        <input name="value" required type="number" min="0" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="md:col-span-2 text-sm font-medium text-on-surface-variant">Descripción
+        <textarea name="description" required rows="3" maxlength="50" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2"></textarea>
+      </label>
+      <div class="md:col-span-2 flex justify-end gap-sm pt-sm">
+        <button type="button" id="bm1-cancel-form" class="rounded-lg border border-outline-variant px-md py-2 text-on-surface-variant">Cancelar</button>
+        <button type="submit" class="rounded-lg bg-primary px-md py-2 text-on-primary">Guardar bien</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Main Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-lg py-md w-12">
+<div class="flex items-center gap-2">
+<input id="bm1-master-checkbox" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<button id="bm1-bulk-delete" type="button" class="hidden rounded-full p-1 text-error hover:bg-error-container/20" title="Eliminar seleccionados">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Grupo</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Sub-Grupo</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Sección</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Cantidad</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Nro de Orden</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Nombre y Descripción de los elementos</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Valor unitario Bs</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Valor total Bs</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Acciones</th>
+</tr>
+</thead>
+<tbody id="bm1-table-body" class="divide-y divide-outline-variant"></tbody>
+</table>
+</div>
+<!-- Pagination & Footer -->
+<div class="px-lg py-md flex items-center justify-between border-t border-outline-variant bg-surface-container-low">
+<span id="bm1-pagination-summary" class="text-body-sm text-on-surface-variant">Mostrando <span class="font-bold">0</span> de <span class="font-bold">0</span> registros</span>
+<div class="flex gap-sm items-center">
+<button id="bm1-page-prev" class="p-2 rounded-lg hover:bg-surface-container-high text-on-surface-variant transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div id="bm1-page-buttons" class="flex gap-1"></div>
+<button id="bm1-page-next" class="p-2 rounded-lg hover:bg-surface-container-high text-on-surface-variant transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<footer class="mt-auto border-t border-outline-variant bg-surface-container-low/60 py-md px-lg text-center text-label-sm font-label-sm text-on-surface-variant">
+    © 2026 Bienes Muebles - Sistema de Gestión de Bienes. Todos los derechos reservados.
+</footer>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

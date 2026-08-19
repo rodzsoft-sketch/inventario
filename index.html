@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bienes Muebles - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/styles.css"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#505f76",
+                        "on-primary-fixed-variant": "#264191",
+                        "tertiary": "#222a3e",
+                        "inverse-on-surface": "#f1f0f7",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1e3a8a",
+                        "on-tertiary": "#ffffff",
+                        "background": "#faf8ff",
+                        "secondary-fixed": "#d3e4fe",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-primary": "#ffffff",
+                        "outline": "#757682",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-primary-container": "#90a8ff",
+                        "surface-container-low": "#f4f3fa",
+                        "surface-bright": "#faf8ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-container-high": "#e9e7ef",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1b21",
+                        "inverse-surface": "#2f3036",
+                        "tertiary-container": "#384055",
+                        "primary-fixed": "#dce1ff",
+                        "on-surface-variant": "#444651",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#00164e",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "surface-variant": "#e3e1e9",
+                        "inverse-primary": "#b6c4ff",
+                        "outline-variant": "#c5c5d3",
+                        "surface": "#faf8ff",
+                        "on-secondary-container": "#54647a",
+                        "surface-container": "#eeedf4",
+                        "surface-dim": "#dad9e1",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-surface": "#1a1b21",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#dae2fd",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "secondary-container": "#d0e1fb",
+                        "surface-tint": "#4059aa",
+                        "surface-container-highest": "#e3e1e9",
+                        "on-tertiary-container": "#a4acc5",
+                        "primary": "#00236f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-margin": "24px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body data-page="dashboard" class="bg-background text-on-background font-body-md min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-highest border-r border-outline-variant shadow-lg flex flex-col py-lg z-50">
+<div class="px-lg mb-xl">
+<div class="mb-md">
+<img src="logo alcaldia.png" alt="Logo Alcaldía" style="max-width: 120px; height: auto;" />
+</div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">Gestión BM</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Control Interno de Bienes</p>
+</div>
+<nav class="flex-1 flex flex-col px-md space-y-sm">
+<a class="flex items-center gap-md px-lg py-md text-primary font-bold border-r-4 border-primary bg-primary-container/10 transition-all duration-200" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="bm1.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-md font-label-md">BM1 Inventario Anual</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="bm2.html">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="text-label-md font-label-md">BM2 Movimientos</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="bm3.html" data-admin-only>
+<span class="material-symbols-outlined">delete_forever</span>
+<span class="text-label-md font-label-md">BM3 Desincorporación</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="bm4.html" data-admin-only>
+<span class="material-symbols-outlined">assessment</span>
+<span class="text-label-md font-label-md">BM4 Reporte Mensual</span>
+</a>
+</nav>
+<div class="px-lg py-md border-t border-outline-variant mt-auto">
+    <button id="logoutButton" class="w-full flex items-center justify-center gap-2 rounded-lg border border-outline-variant px-lg py-md text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined">logout</span>
+        Cerrar sesión
+    </button>
+</div>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="fixed top-0 right-0 z-40 flex justify-between items-center w-full px-lg py-sm ml-64 max-w-[calc(100%-16rem)] bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex items-center">
+<span class="text-headline-md font-headline-md font-extrabold text-primary mr-lg">Bienes Muebles</span>
+<div class="h-6 w-px bg-outline-variant mx-sm"></div>
+<span class="text-label-md font-label-md text-secondary">Control del Departamento</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button type="button" data-help-button class="material-symbols-outlined p-2 hover:bg-surface-container text-on-surface-variant rounded-full transition-colors" data-icon="help">help</button>
+<div class="flex items-center gap-sm pl-md ml-md border-l border-outline-variant">
+<div class="text-right">
+<p id="currentUserName" class="text-label-sm font-label-sm font-bold text-on-surface">Usuario</p>
+<p id="currentUserRole" class="text-[10px] text-on-surface-variant font-medium">Usuario</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-[72px] min-h-screen p-lg">
+<div class="max-w-7xl mx-auto space-y-lg">
+<!-- Welcome Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-md">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary tracking-tight">Panel de Control</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Resumen actual de los Bienes para el Control Interno.</p>
+</div>
+<div class="flex gap-sm">
+<button id="dashboard-new-record" class="bg-primary text-on-primary px-lg py-sm rounded-lg flex items-center gap-sm shadow-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+<span class="text-label-md font-label-md">Nuevo Registro</span>
+</button>
+</div>
+</div>
+<!-- Summary Statistics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="inventory">inventory</span>
+</div>
+</div>
+<div class="mt-md">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Bienes Totales</p>
+<h3 id="summary-total-activos" class="text-headline-xl font-headline-xl text-primary">12,482</h3>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-sm bg-secondary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="move_up">move_up</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-container/10 px-sm py-xs rounded-full">Este mes</span>
+</div>
+<div class="mt-md">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Movimientos</p>
+<h3 id="summary-movimientos" class="text-headline-xl font-headline-xl text-secondary">342</h3>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-sm bg-error-container/20 rounded-lg">
+<span class="material-symbols-outlined text-error" data-icon="gavel">gavel</span>
+</div>
+<span class="text-label-sm font-label-sm text-error bg-error-container/10 px-sm py-xs rounded-full">Pendientes</span>
+</div>
+<div class="mt-md">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Desincorporaciones</p>
+<h3 id="summary-desincorporaciones" class="text-headline-xl font-headline-xl text-error">18</h3>
+</div>
+</div>
+</div>
+<!-- Funciones Rápidas BM1-BM4 -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-lg">
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-start gap-sm mb-md">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="inventory">inventory</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">BM1 Inventario Anual</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Inventario Central</h3>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Consulta, filtra y registra bienes durante el inventario anual. Ideal para ver el estado del patrimonio y las asignaciones internas.</p>
+<div class="mt-md flex flex-wrap gap-sm">
+<a href="bm1.html" class="px-lg py-sm bg-primary text-on-primary rounded-lg text-label-sm">Ver inventario</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-start gap-sm mb-md">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="swap_horiz">swap_horiz</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">BM2 Movimientos</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Reasignaciones</h3>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Revisa el flujo de movimientos entre departamentos y registra nuevas reasignaciones con seguimiento de estado.</p>
+<div class="mt-md flex flex-wrap gap-sm">
+<a href="bm2.html" class="px-lg py-sm bg-secondary text-on-secondary rounded-lg text-label-sm">Ver movimientos</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-start gap-sm mb-md">
+<span class="material-symbols-outlined text-error text-3xl" data-icon="delete_forever">delete_forever</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">BM3 Desincorporación</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Bajas de Activos</h3>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Gestiona solicitudes de baja y visualiza el estado de desincorporaciones para mantener el inventario actualizado.</p>
+<div class="mt-md flex flex-wrap gap-sm">
+<a href="bm3.html" data-admin-only class="px-lg py-sm bg-error text-on-error rounded-lg text-label-sm">Ver bajas</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-start gap-sm mb-md">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="assessment">assessment</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">BM4 Reporte Mensual</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Informes</h3>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Genera y exporta reportes mensuales de gestión para facilitar revisiones y análisis de control interno.</p>
+<div class="mt-md flex flex-wrap gap-sm">
+<a href="bm4.html" data-admin-only class="px-lg py-sm bg-tertiary text-on-tertiary rounded-lg text-label-sm">Ver reportes</a>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 gap-gutter">
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center justify-between mb-md">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Actividad reciente</p>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Últimos movimientos del sistema</h3>
+</div>
+<a href="bm2.html" class="text-primary text-label-sm font-label-sm hover:underline">Ver todo</a>
+</div>
+<div id="dashboard-activity-list" class="space-y-sm"></div>
+</div>
+</section>
+</div>
+<div id="bm1-form-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/50 px-lg">
+  <div class="w-full max-w-2xl rounded-xl bg-surface-container-lowest p-lg shadow-2xl border border-outline-variant">
+    <div class="flex items-start justify-between gap-md mb-md">
+      <div>
+        <p class="text-label-sm font-label-sm text-on-surface-variant">BM1</p>
+        <h3 id="bm1-form-title" class="text-headline-sm font-headline-sm text-on-surface">Registrar nuevo bien</h3>
+        <p id="bm1-form-subtitle" class="text-sm text-on-surface-variant">Completa los datos del activo para registrarlo.</p>
+        <p id="bm1-form-message" class="mt-2 text-sm text-on-surface-variant"> </p>
+      </div>
+      <button id="bm1-close-form" class="material-symbols-outlined rounded-full p-2 hover:bg-surface-container-high transition-colors">close</button>
+    </div>
+    <form id="bm1-register-form" class="grid grid-cols-1 md:grid-cols-2 gap-md">
+      <label class="text-sm font-medium text-on-surface-variant">Grupo
+        <input name="group" required type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Sub-Grupo
+        <input name="subgroup" required type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Sección
+        <select name="section" required class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2">
+          <option value="Deposito 01">Deposito 01</option>
+          <option value="Deposito 02">Deposito 02</option>
+          <option value="Archivo">Archivo</option>
+          <option value="Sala de Juntas Interna">Sala de Juntas Interna</option>
+        </select>
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Cantidad
+        <input name="quantity" required type="number" min="1" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Nro de Orden
+        <input name="order" required type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="text-sm font-medium text-on-surface-variant">Valor unitario Bs
+        <input name="value" required type="number" min="0" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2" />
+      </label>
+      <label class="md:col-span-2 text-sm font-medium text-on-surface-variant">Descripción
+        <textarea name="description" required rows="3" maxlength="50" class="mt-1 w-full rounded-lg border border-outline-variant px-sm py-2"></textarea>
+      </label>
+      <div class="md:col-span-2 flex justify-end gap-sm pt-sm">
+        <button type="button" id="bm1-cancel-form" class="rounded-lg border border-outline-variant px-md py-2 text-on-surface-variant">Cancelar</button>
+        <button type="submit" class="rounded-lg bg-primary px-md py-2 text-on-primary">Guardar bien</button>
+      </div>
+    </form>
+  </div>
+</div>
+<footer class="mt-10 border-t border-outline-variant bg-surface-container-low/60 py-md px-lg text-center text-label-sm font-label-sm text-on-surface-variant">
+    © 2026 Bienes Muebles - Sistema de Gestión de Bienes. Todos los derechos reservados.
+</footer>
+</main>
+<script>
+        // Micro-interaction for sidebar items
+        document.querySelectorAll('nav a').forEach(item => {
+            item.addEventListener('mousedown', () => {
+                item.style.transform = 'scale(0.98)';
+            });
+            item.addEventListener('mouseup', () => {
+                item.style.transform = 'scale(1)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search bar interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
+            });
+        }
+    </script>
+    <script src="assets/app.js"></script>
+</body></html>
